@@ -1,0 +1,70 @@
+{%extends 'base.html'%}
+
+{%load static%}
+
+{%block content%}
+
+
+<!-- Form Start -->
+<!-- ajouter_produit.html -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="card bg-secondary rounded shadow">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Ajouter un Produit</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_magasin" class="form-label">Magasin</label>
+                            <select class="form-select" id="id_magasin" name="magasin">
+                                {% for magasin in magasins %}
+                                <option value="{{ magasin.id }}">{{ magasin.nom }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_catégorie" class="form-label">Catégorie</label>
+                            <select class="form-select" id="id_catégorie" name="catégorie">
+                                {% for catégorie in catégories %}
+                                <option value="{{ catégorie.id }}">{{ catégorie.nom }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="id_nom" name="nom">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_description" class="form-label">Description</label>
+                            <textarea class="form-control" id="id_description" name="description" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_prix" class="form-label">Prix</label>
+                            <input type="text" class="form-control" id="id_prix" name="prix">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_stock" class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="id_stock" name="stock">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_image" class="form-label">Image du Produit</label>
+                            <input type="file" class="form-control" id="id_image" name="image" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ajouter le produit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- Form End -->
+
+{%endblock content%}

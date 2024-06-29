@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+
+{%load static%}
+
+{%block content%}
+
+
+<!-- Form Start -->
+<!-- modifier_produit.html -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Modifier le Produit</h6>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.magasin.label_tag }}
+                        {{ form.magasin }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.catégorie.label_tag }}
+                        {{ form.catégorie }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.nom.label_tag }}
+                        {{ form.nom }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.description.label_tag }}
+                        {{ form.description }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.prix.label_tag }}
+                        {{ form.prix }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.stock.label_tag }}
+                        {{ form.stock }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Form End -->
+
+{%endblock content%}
